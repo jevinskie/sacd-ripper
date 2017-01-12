@@ -18,6 +18,16 @@ void lv1poke(u64 addr, u64 value) {
     lv2syscall2(7, HV_BASE + addr, value);
 }
 
+u64 lv1peek2(u64 addr) {
+	lv2syscall1(8, addr);
+	return_to_user_prog(u64);
+}
+
+void lv1poke2(u64 addr, u64 value) {
+    lv2syscall2(9, addr, value);
+}
+
+
 int map_lv1() {
     int result = lv1_undocumented_function_114(0, 0xC, HV_SIZE, &mmap_lpar_addr);
     if (result != 0) {
@@ -76,7 +86,7 @@ int remove_protection() {
 
 	return 0;
 }
-
+/*
 int get_version() {
 	if(lv2peek(FW_341_ADDR) == FW_341_VALUE) {
 		return FW_341_VALUE;
@@ -88,3 +98,4 @@ int get_version() {
 		return FW_UNK_VALUE;
 	}
 }
+*/

@@ -512,9 +512,9 @@ s,@CXX@,ppu-g++,;t t
 s,@CXXFLAGS@,-g -O2,;t t
 s,@ac_ct_CXX@,,;t t
 s,@CXXCPP@,ppu-g++ -E,;t t
-s,@F77@,f95,;t t
+s,@F77@,,;t t
 s,@FFLAGS@,,;t t
-s,@ac_ct_F77@,f95,;t t
+s,@ac_ct_F77@,,;t t
 s,@LIBTOOL@,$(SHELL) $(top_builddir)/libtool,;t t
 s,@GLIBC21@,no,;t t
 s,@LIBOBJS@,,;t t

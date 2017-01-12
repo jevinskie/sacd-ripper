@@ -500,16 +500,16 @@ s,@LIBS@,,;t t
 s,@INSTALL_PROGRAM@,${INSTALL},;t t
 s,@INSTALL_SCRIPT@,${INSTALL},;t t
 s,@INSTALL_DATA@,${INSTALL} -m 644,;t t
-s,@CYGPATH_W@,cygpath -w,;t t
+s,@CYGPATH_W@,echo,;t t
 s,@PACKAGE@,libiconv,;t t
 s,@VERSION@,1.9,;t t
-s,@ACLOCAL@,${SHELL} /c/Users/Jooni3/Documents/GitHub/sacd-ripper/libs/libiconv/autoconf/missing --run aclocal-1.7,;t t
-s,@AUTOCONF@,${SHELL} /c/Users/Jooni3/Documents/GitHub/sacd-ripper/libs/libiconv/autoconf/missing --run autoconf,;t t
-s,@AUTOMAKE@,${SHELL} /c/Users/Jooni3/Documents/GitHub/sacd-ripper/libs/libiconv/autoconf/missing --run automake-1.7,;t t
-s,@AUTOHEADER@,${SHELL} /c/Users/Jooni3/Documents/GitHub/sacd-ripper/libs/libiconv/autoconf/missing --run autoheader,;t t
-s,@MAKEINFO@,${SHELL} /c/Users/Jooni3/Documents/GitHub/sacd-ripper/libs/libiconv/autoconf/missing --run makeinfo,;t t
-s,@AMTAR@,${SHELL} /c/Users/Jooni3/Documents/GitHub/sacd-ripper/libs/libiconv/autoconf/missing --run tar,;t t
-s,@install_sh@,/c/Users/Jooni3/Documents/GitHub/sacd-ripper/libs/libiconv/autoconf/install-sh,;t t
+s,@ACLOCAL@,${SHELL} /home/dean/sacd-ripper/libs/libiconv/autoconf/missing --run aclocal-1.7,;t t
+s,@AUTOCONF@,${SHELL} /home/dean/sacd-ripper/libs/libiconv/autoconf/missing --run autoconf,;t t
+s,@AUTOMAKE@,${SHELL} /home/dean/sacd-ripper/libs/libiconv/autoconf/missing --run automake-1.7,;t t
+s,@AUTOHEADER@,${SHELL} /home/dean/sacd-ripper/libs/libiconv/autoconf/missing --run autoheader,;t t
+s,@MAKEINFO@,${SHELL} /home/dean/sacd-ripper/libs/libiconv/autoconf/missing --run makeinfo,;t t
+s,@AMTAR@,${SHELL} /home/dean/sacd-ripper/libs/libiconv/autoconf/missing --run tar,;t t
+s,@install_sh@,/home/dean/sacd-ripper/libs/libiconv/autoconf/install-sh,;t t
 s,@STRIP@,ppu-strip,;t t
 s,@ac_ct_STRIP@,,;t t
 s,@INSTALL_STRIP_PROGRAM@,${SHELL} $(install_sh) -c -s,;t t
@@ -569,9 +569,9 @@ s,@CXXDEPMODE@,depmode=none,;t t
 s,@am__fastdepCXX_TRUE@,#,;t t
 s,@am__fastdepCXX_FALSE@,,;t t
 s,@CXXCPP@,ppu-g++ -E,;t t
-s,@F77@,f95,;t t
+s,@F77@,,;t t
 s,@FFLAGS@,,;t t
-s,@ac_ct_F77@,f95,;t t
+s,@ac_ct_F77@,,;t t
 s,@LIBTOOL@,$(SHELL) $(top_builddir)/libtool,;t t
 s,@LIBICONV@,,;t t
 s,@LTLIBICONV@,,;t t
