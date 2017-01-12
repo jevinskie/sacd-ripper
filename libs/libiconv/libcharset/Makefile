@@ -21,7 +21,7 @@ RM = rm -f
 
 
 # Programs used by "make install":
-INSTALL = /usr/bin/install -c
+INSTALL = /c/PSDK3v2/mingw/msys/1.0/bin/install -c
 INSTALL_DATA = ${INSTALL} -m 644
 mkinstalldirs = $(SHELL) ./autoconf/mkinstalldirs
 
