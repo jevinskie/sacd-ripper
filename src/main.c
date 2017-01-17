@@ -75,6 +75,7 @@ static char message_output[150];
 static char message_info[450];
 float c_firmware=0.00f;
 uint8_t dex_mode=0;
+uint8_t deh_mode=0;
 uint64_t SYSCALL_TABLE = 0;
 
 static const int output_format_options[7] =
@@ -225,6 +226,18 @@ int patch_lv1_ss_services(void)
 		return 0;
 	}
 	else
+	if((deh_mode) &&(c_firmware>=4.75f))
+	{
+		if(lv1peek2( 0x177A60) == 0x7f83e378f8010098ULL)
+		{
+			lv1poke2( 0x177A60, 0x7f83e37860000000ULL);
+			lv1poke2( 0x177A84, 0x7f85e37838600001ULL);
+			lv1poke2( 0x177AFC, 0x7f84e3783be00001ULL);
+			lv1poke2( 0x177B04, 0x9be1007038600000ULL);
+		}
+		if(lv1peek2( 0x177B04) == 0x9be1007038600000ULL) return 0;
+	}	
+	else
 	if(c_firmware==4.21f)
 	{
 		if(lv1peek2( 0x16f758) == 0x7f83e378f8010098ULL)
@@ -275,6 +288,17 @@ int unpatch_lv1_ss_services(void)
 		unmap_lv1();
 	}
 	else
+	if((c_firmware>=4.75f) && (deh_mode))
+	{
+		if(lv1peek2( 0x177A60) == 0x7f83e37860000000ULL)
+		{
+			lv1poke2( 0x177A60, 0x7f83e378f8010098ULL);
+			lv1poke2( 0x177A84, 0x7f85e3784bfff0e5ULL);
+			lv1poke2( 0x177AFC, 0x7f84e37838a10070ULL);
+			lv1poke2( 0x177B04, 0x9be1007048006065ULL);
+		}
+	}
+	else
 	if(c_firmware==4.21f)
 	{
 		if(lv1peek2( 0x16f758) == 0x7f83e37860000000ULL)
@@ -304,7 +328,13 @@ int patch_syscall_864(void)
 	if(c_firmware>4.81f) return -1;
 
 	uint64_t addr;
-	if(dex_mode)
+	if(deh_mode)
+	{
+		if(c_firmware==4.81f)
+			addr = 0x800000000032C958ULL; // fw 4.81H
+		else return -1;
+	}
+	else if(dex_mode)
 	{
 		if(c_firmware==3.55f)
 			addr = 0x80000000002EF270ULL; // fw 3.55D
@@ -726,6 +756,7 @@ int main(int argc, char *argv[])
 
 	u64 CEX=0x4345580000000000ULL;
 	u64 DEX=0x4445580000000000ULL;
+	u64 DEH=0x4445480000000000ULL;
 
 	if(lv2peek(0x80000000002E79C8ULL)==DEX) {dex_mode=2; c_firmware=3.41f;}
 	else
@@ -783,6 +814,8 @@ int main(int argc, char *argv[])
 	else
 	if(lv2peek(0x800000000030F3B0ULL)==DEX) {dex_mode=2; c_firmware=4.81f;}
 	else
+	if(lv2peek(0x800000000032EB60ULL)==DEH) {deh_mode=2; c_firmware=4.81f;}
+	else	
 		c_firmware=0.00f;
 
 	if(c_firmware==3.55f && dex_mode)
@@ -919,6 +952,11 @@ int main(int argc, char *argv[])
 	{
 		SYSCALL_TABLE			= SYSCALL_TABLE_341;
 	}
+	else
+	if(c_firmware==4.81f && deh_mode)
+	{
+		SYSCALL_TABLE			= SYSCALL_TABLE_481H;
+	}	
 /*
 	if(c_firmware>=4.20f && SYSCALL_TABLE)
 	{
