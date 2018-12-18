@@ -30,10 +30,10 @@
 # the same distribution terms that you use for the rest of that program.
 
 # A sed program that does not truncate output.
-SED="/c/PSDK3v2/mingw/msys/1.0/bin/sed"
+SED="/usr/local/bin/gsed"
 
 # Sed that helps us avoid accidentally triggering echo(1) options like -n.
-Xsed="/c/PSDK3v2/mingw/msys/1.0/bin/sed -e s/^X//"
+Xsed="/usr/local/bin/gsed -e s/^X//"
 
 # The HP-UX ksh and POSIX shell print the target directory to stdout
 # if CDPATH is set.
@@ -44,7 +44,7 @@ available_tags=" CXX"
 
 # ### BEGIN LIBTOOL CONFIG
 
-# Libtool was configured on host IT-DELL:
+# Libtool was configured on host my-body-is-a-tmp-file:
 
 # Shell to use when invoking shell scripts.
 SHELL="/bin/sh"
@@ -69,7 +69,7 @@ host_alias=ppu
 host=powerpc64-unknown-linux-gnu
 
 # An echo program that does not interpret backslashes.
-echo="echo"
+echo="/bin/echo"
 
 # The archiver.
 AR="ppu-ar"
@@ -88,13 +88,13 @@ with_gcc=yes
 EGREP="grep -E"
 
 # The linker used to build libraries.
-LD="c:/psdk3v2/ps3dev/ppu/powerpc64-ps3-elf/bin/ld.exe -m elf64ppc"
+LD="/opt/ps3dev/ppu/powerpc64-ps3-elf/bin/ld -m elf64ppc"
 
 # Whether we need hard or soft links.
 LN_S="ln -s"
 
 # A BSD-compatible nm program.
-NM="/c/PSDK3v2/ps3dev/ppu/bin/ppu-nm"
+NM="/opt/ps3dev/ppu/bin/ppu-nm -B"
 
 # A symbol stripping program
 STRIP=ppu-strip
@@ -138,7 +138,7 @@ pic_flag=" -fPIC -DPIC"
 pic_mode=default
 
 # What is the maximum length of a command?
-max_cmd_len=8192
+max_cmd_len=
 
 # Does compiler simultaneously support -c and -o options?
 compiler_c_o="yes"
@@ -254,7 +254,7 @@ finish_cmds="PATH=\\\"\\\$PATH:/sbin\\\" ldconfig -n \$libdir"
 finish_eval=""
 
 # Take the output of nm and produce a listing of raw symbols and C names.
-global_symbol_pipe="sed -n -e 's/^.*[ 	]\\([ABCDGISTW][ABCDGISTW]*\\)[ 	][ 	]*\\(\\)\\([_A-Za-z][_A-Za-z0-9]*\\)\\{0,1\\}\$/\\1 \\2\\3 \\3/p'"
+global_symbol_pipe="sed -n -e 's/^.*[ 	]\\([ABCDGISTW][ABCDGISTW]*\\)[ 	][ 	]*\\(\\)\\([_A-Za-z][_A-Za-z0-9]*\\)\$/\\1 \\2\\3 \\3/p'"
 
 # Transform the output of nm in a proper C declaration
 global_symbol_to_cdecl="sed -n -e 's/^. .* \\(.*\\)\$/extern int \\1;/p'"
@@ -313,7 +313,7 @@ variables_saved_for_relink="PATH  LD_RUN_PATH GCC_EXEC_PREFIX COMPILER_PATH LIBR
 link_all_deplibs=unknown
 
 # Compile-time system search path for libraries
-sys_lib_search_path_spec=" =c:/psdk3v2/ps3dev/ppu/bin/../lib/gcc/powerpc64-ps3-elf/4.5.2/ c:/psdk3v2/ps3dev/ppu/bin/../lib/gcc/ c:/psdk3v2/ps3dev/ppu/bin/../lib/gcc/powerpc64-ps3-elf/4.5.2/../../../../powerpc64-ps3-elf/lib/powerpc64-ps3-elf/4.5.2/ c:/psdk3v2/ps3dev/ppu/bin/../lib/gcc/powerpc64-ps3-elf/4.5.2/../../../../powerpc64-ps3-elf/lib/"
+sys_lib_search_path_spec=" /opt/ps3dev/ppu/lib/gcc/powerpc64-ps3-elf/7.2.0/ /opt/ps3dev/ppu/lib/gcc/powerpc64-ps3-elf/7.2.0/../../../../powerpc64-ps3-elf/lib/powerpc64-ps3-elf/7.2.0/ /opt/ps3dev/ppu/lib/gcc/powerpc64-ps3-elf/7.2.0/../../../../powerpc64-ps3-elf/lib/"
 
 # Run-time system search path for libraries
 sys_lib_dlsearch_path_spec="/lib /usr/lib"
@@ -6634,7 +6634,7 @@ build_old_libs=`case $build_libtool_libs in yes) $echo no;; *) $echo yes;; esac`
 # End:
 # ### BEGIN LIBTOOL TAG CONFIG: CXX
 
-# Libtool was configured on host IT-DELL:
+# Libtool was configured on host my-body-is-a-tmp-file:
 
 # Shell to use when invoking shell scripts.
 SHELL="/bin/sh"
@@ -6659,7 +6659,7 @@ host_alias=ppu
 host=powerpc64-unknown-linux-gnu
 
 # An echo program that does not interpret backslashes.
-echo="echo"
+echo="/bin/echo"
 
 # The archiver.
 AR="ppu-ar"
@@ -6678,13 +6678,13 @@ with_gcc=yes
 EGREP="grep -E"
 
 # The linker used to build libraries.
-LD="c:/psdk3v2/ps3dev/ppu/powerpc64-ps3-elf/bin/ld.exe -m elf64ppc"
+LD="/opt/ps3dev/ppu/powerpc64-ps3-elf/bin/ld -m elf64ppc"
 
 # Whether we need hard or soft links.
 LN_S="ln -s"
 
 # A BSD-compatible nm program.
-NM="/c/PSDK3v2/ps3dev/ppu/bin/ppu-nm"
+NM="/opt/ps3dev/ppu/bin/ppu-nm -B"
 
 # A symbol stripping program
 STRIP=ppu-strip
@@ -6728,7 +6728,7 @@ pic_flag=" -fPIC -DPIC"
 pic_mode=default
 
 # What is the maximum length of a command?
-max_cmd_len=8192
+max_cmd_len=
 
 # Does compiler simultaneously support -c and -o options?
 compiler_c_o="yes"
@@ -6807,11 +6807,11 @@ striplib="ppu-strip --strip-unneeded"
 
 # Dependencies to place before the objects being linked to create a
 # shared library.
-predep_objects="c:/psdk3v2/ps3dev/ppu/bin/../lib/gcc/powerpc64-ps3-elf/4.5.2/../../../../powerpc64-ps3-elf/lib/lv2-crti.o c:/psdk3v2/ps3dev/ppu/bin/../lib/gcc/powerpc64-ps3-elf/4.5.2/crtbegin.o c:/psdk3v2/ps3dev/ppu/bin/../lib/gcc/powerpc64-ps3-elf/4.5.2/../../../../powerpc64-ps3-elf/lib/lv2-crt0.o c:/psdk3v2/ps3dev/ppu/bin/../lib/gcc/powerpc64-ps3-elf/4.5.2/../../../../powerpc64-ps3-elf/lib/lv2-sprx.o"
+predep_objects="/opt/ps3dev/ppu/lib/gcc/powerpc64-ps3-elf/7.2.0/../../../../powerpc64-ps3-elf/lib/lv2-crti.o /opt/ps3dev/ppu/lib/gcc/powerpc64-ps3-elf/7.2.0/crtbegin.o /opt/ps3dev/ppu/lib/gcc/powerpc64-ps3-elf/7.2.0/../../../../powerpc64-ps3-elf/lib/lv2-crt0.o /opt/ps3dev/ppu/lib/gcc/powerpc64-ps3-elf/7.2.0/../../../../powerpc64-ps3-elf/lib/lv2-sprx.o"
 
 # Dependencies to place after the objects being linked to create a
 # shared library.
-postdep_objects="c:/psdk3v2/ps3dev/ppu/bin/../lib/gcc/powerpc64-ps3-elf/4.5.2/crtend.o c:/psdk3v2/ps3dev/ppu/bin/../lib/gcc/powerpc64-ps3-elf/4.5.2/../../../../powerpc64-ps3-elf/lib/lv2-crtn.o"
+postdep_objects="/opt/ps3dev/ppu/lib/gcc/powerpc64-ps3-elf/7.2.0/crtend.o /opt/ps3dev/ppu/lib/gcc/powerpc64-ps3-elf/7.2.0/../../../../powerpc64-ps3-elf/lib/lv2-crtn.o"
 
 # Dependencies to place before the objects being linked to create a
 # shared library.
@@ -6823,7 +6823,7 @@ postdeps="-lstdc++ -lm -lgcc -lsysbase -lc -lrt -llv2 -lgcc"
 
 # The library search path used internally by the compiler when linking
 # a shared library.
-compiler_lib_search_path="-Lc:/psdk3v2/ps3dev/ppu/bin/../lib/gcc/powerpc64-ps3-elf/4.5.2 -Lc:/psdk3v2/ps3dev/ppu/bin/../lib/gcc -Lc:/psdk3v2/ps3dev/ppu/bin/../lib/gcc/powerpc64-ps3-elf/4.5.2/../../../../powerpc64-ps3-elf/lib"
+compiler_lib_search_path="-L/opt/ps3dev/ppu/lib/gcc/powerpc64-ps3-elf/7.2.0 -L/opt/ps3dev/ppu/lib/gcc/powerpc64-ps3-elf/7.2.0/../../../../powerpc64-ps3-elf/lib"
 
 # Method to check whether dependent libraries are shared objects.
 deplibs_check_method="pass_all"
@@ -6844,7 +6844,7 @@ finish_cmds="PATH=\\\"\\\$PATH:/sbin\\\" ldconfig -n \$libdir"
 finish_eval=""
 
 # Take the output of nm and produce a listing of raw symbols and C names.
-global_symbol_pipe="sed -n -e 's/^.*[ 	]\\([ABCDGISTW][ABCDGISTW]*\\)[ 	][ 	]*\\(\\)\\([_A-Za-z][_A-Za-z0-9]*\\)\\{0,1\\}\$/\\1 \\2\\3 \\3/p'"
+global_symbol_pipe="sed -n -e 's/^.*[ 	]\\([ABCDGISTW][ABCDGISTW]*\\)[ 	][ 	]*\\(\\)\\([_A-Za-z][_A-Za-z0-9]*\\)\$/\\1 \\2\\3 \\3/p'"
 
 # Transform the output of nm in a proper C declaration
 global_symbol_to_cdecl="sed -n -e 's/^. .* \\(.*\\)\$/extern int \\1;/p'"
@@ -6903,7 +6903,7 @@ variables_saved_for_relink="PATH LD_LIBRARY_PATH LD_RUN_PATH GCC_EXEC_PREFIX COM
 link_all_deplibs=unknown
 
 # Compile-time system search path for libraries
-sys_lib_search_path_spec=" =c:/psdk3v2/ps3dev/ppu/bin/../lib/gcc/powerpc64-ps3-elf/4.5.2/ c:/psdk3v2/ps3dev/ppu/bin/../lib/gcc/ c:/psdk3v2/ps3dev/ppu/bin/../lib/gcc/powerpc64-ps3-elf/4.5.2/../../../../powerpc64-ps3-elf/lib/powerpc64-ps3-elf/4.5.2/ c:/psdk3v2/ps3dev/ppu/bin/../lib/gcc/powerpc64-ps3-elf/4.5.2/../../../../powerpc64-ps3-elf/lib/"
+sys_lib_search_path_spec=" /opt/ps3dev/ppu/lib/gcc/powerpc64-ps3-elf/7.2.0/ /opt/ps3dev/ppu/lib/gcc/powerpc64-ps3-elf/7.2.0/../../../../powerpc64-ps3-elf/lib/powerpc64-ps3-elf/7.2.0/ /opt/ps3dev/ppu/lib/gcc/powerpc64-ps3-elf/7.2.0/../../../../powerpc64-ps3-elf/lib/"
 
 # Run-time system search path for libraries
 sys_lib_dlsearch_path_spec="/lib /usr/lib"

@@ -21,6 +21,8 @@
 # include <config.h>
 #endif
 
+#include <sys/stat.h>
+
 #if !HAVE_CANONICALIZE_FILE_NAME || defined _LIBC
 
 #include <alloca.h>

@@ -325,7 +325,7 @@ int unpatch_lv1_ss_services(void)
 
 int patch_syscall_864(void)
 {
-	if(c_firmware>4.81f) return -1;
+	if(c_firmware>4.82f) return -1;
 
 	uint64_t addr;
 	if(deh_mode)
@@ -354,6 +354,8 @@ int patch_syscall_864(void)
 			addr = 0x800000000030E658ULL; // fw 4.80D
 		else if(c_firmware==4.81f)
 			addr = 0x800000000030E668ULL; // fw 4.81D
+        else if(c_firmware==4.82f)
+            addr = 0x800000000030E668ULL; // fw 4.82D
 		else return -1;
 	}
 	else
@@ -388,6 +390,10 @@ int patch_syscall_864(void)
 			addr = 0x80000000002ECAD0ULL;
 		else if(c_firmware==4.80f)
 			addr = 0x80000000002ECAC0ULL;
+        else if(c_firmware==4.81f)
+            addr = 0x80000000002ECAD0ULL;
+        else if(c_firmware==4.82f)
+            addr = 0x80000000002ECAD0ULL;
 		else if(c_firmware==3.41f)
 			addr = 0x80000000002CF880ULL; // fw 3.41
 		else return -1;
@@ -751,8 +757,9 @@ int main(int argc, char *argv[])
 
     show_version();
 
-    if (user_requested_exit())
+    if (user_requested_exit()) {
         goto quit;
+    }
 
 	u64 CEX=0x4345580000000000ULL;
 	u64 DEX=0x4445580000000000ULL;
@@ -815,6 +822,10 @@ int main(int argc, char *argv[])
 	if(lv2peek(0x800000000030F3B0ULL)==DEX) {dex_mode=2; c_firmware=4.81f;}
 	else
 	if(lv2peek(0x800000000032EB60ULL)==DEH) {deh_mode=2; c_firmware=4.81f;}
+    else
+    if(lv2peek(0x80000000002ED818ULL)==CEX) {dex_mode=0; c_firmware=4.82f;} // FIXME: dupe 4.75
+    else
+    if(lv2peek(0x800000000030F3B0ULL)==DEX) {dex_mode=2; c_firmware=4.82f;}
 	else	
 		c_firmware=0.00f;
 
@@ -917,6 +928,16 @@ int main(int argc, char *argv[])
 	{
 		SYSCALL_TABLE			= SYSCALL_TABLE_480;
 	}
+    else
+    if(c_firmware==4.82f && !dex_mode)
+    {
+        SYSCALL_TABLE           = SYSCALL_TABLE_482;
+    }
+    else
+    if(c_firmware==4.82f && dex_mode)
+    {
+        SYSCALL_TABLE           = SYSCALL_TABLE_482D;
+    }
 	else
 	if(c_firmware==4.80f && dex_mode)
 	{

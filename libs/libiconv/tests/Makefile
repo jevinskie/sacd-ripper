@@ -7,9 +7,9 @@ srcdir = .
 
 # Programs used by "make":
 CC = ppu-gcc
-CFLAGS = -I/c/PSDK3v2/psl1ght/ppu/include -I/c/PSDK3v2/ps3dev/portlibs/ppu/include
+CFLAGS = -I/opt/ps3dev/ppu/include -I/opt/ps3dev/portlibs/ppu/include
 CPPFLAGS = 
-LDFLAGS = -L/c/PSDK3v2/psl1ght/ppu/lib -L/c/PSDK3v2/ps3dev/portlibs/ppu/lib -lrt -llv2
+LDFLAGS = -L/opt/ps3dev/ppu/lib -L/opt/ps3dev/portlibs/ppu/lib -lrt -llv2
 INCLUDES = -I. -I$(srcdir) -I../include -I$(srcdir)/../include -I../lib
 LIBTOOL = $(SHELL) $(top_builddir)/libtool
 LIBTOOL_COMPILE = $(LIBTOOL) --mode=compile

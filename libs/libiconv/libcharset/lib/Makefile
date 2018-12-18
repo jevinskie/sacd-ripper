@@ -13,9 +13,9 @@ libdir = ${exec_prefix}/lib
 
 # Programs used by "make":
 CC = ppu-gcc
-CFLAGS = -I/c/PSDK3v2/psl1ght/ppu/include -I/c/PSDK3v2/ps3dev/portlibs/ppu/include
+CFLAGS = -I/opt/ps3dev/ppu/include -I/opt/ps3dev/portlibs/ppu/include
 CPPFLAGS = 
-LDFLAGS = -L/c/PSDK3v2/psl1ght/ppu/lib -L/c/PSDK3v2/ps3dev/portlibs/ppu/lib -lrt -llv2
+LDFLAGS = -L/opt/ps3dev/ppu/lib -L/opt/ps3dev/portlibs/ppu/lib -lrt -llv2
 INCLUDES = -I. -I$(srcdir) -I.. -I$(srcdir)/.. -I../include
 DEFS = -DLIBDIR=\"$(libdir)\" \
 -DENABLE_RELOCATABLE=1 -DIN_LIBRARY -DINSTALLDIR=\"$(libdir)\" -DNO_XMALLOC \
@@ -29,7 +29,7 @@ LIBTOOL_UNINSTALL = $(LIBTOOL) --mode=uninstall
 RM = rm -f
 
 # Programs used by "make install":
-INSTALL = /c/PSDK3v2/mingw/msys/1.0/bin/install -c
+INSTALL = /usr/local/bin/ginstall -c
 INSTALL_DATA = ${INSTALL} -m 644
 mkinstalldirs = $(SHELL) ../autoconf/mkinstalldirs
 

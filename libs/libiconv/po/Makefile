@@ -24,16 +24,16 @@ datadir = ${prefix}/share
 localedir = $(datadir)/locale
 gettextsrcdir = $(datadir)/gettext/po
 
-INSTALL = /c/PSDK3v2/mingw/msys/1.0/bin/install -c
+INSTALL = /usr/local/bin/ginstall -c
 INSTALL_DATA = ${INSTALL} -m 644
 MKINSTALLDIRS = $(top_builddir)/autoconf/mkinstalldirs
 mkinstalldirs = $(SHELL) $(MKINSTALLDIRS)
 
-GMSGFMT = /c/PSDK3v2/mingw/msys/1.0/bin/msgfmt
-MSGFMT = /c/PSDK3v2/mingw/msys/1.0/bin/msgfmt
-XGETTEXT = /c/PSDK3v2/mingw/msys/1.0/bin/xgettext
+GMSGFMT = :
+MSGFMT = :
+XGETTEXT = :
 MSGMERGE = msgmerge
-MSGMERGE_UPDATE = /c/PSDK3v2/mingw/msys/1.0/bin/msgmerge --update
+MSGMERGE_UPDATE = : --update
 MSGINIT = msginit
 MSGCONV = msgconv
 MSGFILTER = msgfilter
